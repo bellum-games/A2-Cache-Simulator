@@ -31,7 +31,7 @@
             this.lbFR = new System.Windows.Forms.Label();
             this.lbIBS = new System.Windows.Forms.Label();
             this.lbIRmax = new System.Windows.Forms.Label();
-            this.lbLatenta = new System.Windows.Forms.Label();
+            this.lbN_PEN = new System.Windows.Forms.Label();
             this.lbIC = new System.Windows.Forms.Label();
             this.lbDC = new System.Windows.Forms.Label();
             this.comboFR = new System.Windows.Forms.ComboBox();
@@ -48,8 +48,10 @@
             this.comboSIZE_DC = new System.Windows.Forms.ComboBox();
             this.lbSIZE_DC = new System.Windows.Forms.Label();
             this.btnSTART = new System.Windows.Forms.Button();
-            this.comboLatenta = new System.Windows.Forms.ComboBox();
+            this.comboN_PEN = new System.Windows.Forms.ComboBox();
             this.textBoxConsole = new System.Windows.Forms.TextBox();
+            this.lbNR_REG = new System.Windows.Forms.Label();
+            this.comboNR_REG = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbFR
@@ -79,14 +81,14 @@
             this.lbIRmax.TabIndex = 2;
             this.lbIRmax.Text = "IRmax:";
             // 
-            // lbLatenta
+            // lbN_PEN
             // 
-            this.lbLatenta.AutoSize = true;
-            this.lbLatenta.Location = new System.Drawing.Point(462, 67);
-            this.lbLatenta.Name = "lbLatenta";
-            this.lbLatenta.Size = new System.Drawing.Size(49, 15);
-            this.lbLatenta.TabIndex = 3;
-            this.lbLatenta.Text = "Latenta:";
+            this.lbN_PEN.AutoSize = true;
+            this.lbN_PEN.Location = new System.Drawing.Point(462, 67);
+            this.lbN_PEN.Name = "lbN_PEN";
+            this.lbN_PEN.Size = new System.Drawing.Size(46, 15);
+            this.lbN_PEN.TabIndex = 3;
+            this.lbN_PEN.Text = "N_PEN:";
             // 
             // lbIC
             // 
@@ -289,19 +291,19 @@
             this.btnSTART.UseVisualStyleBackColor = true;
             this.btnSTART.Click += new System.EventHandler(this.btnSTART_Click);
             // 
-            // comboLatenta
+            // comboN_PEN
             // 
-            this.comboLatenta.FormattingEnabled = true;
-            this.comboLatenta.Items.AddRange(new object[] {
+            this.comboN_PEN.FormattingEnabled = true;
+            this.comboN_PEN.Items.AddRange(new object[] {
             "1",
             "10",
             "15",
             "20"});
-            this.comboLatenta.Location = new System.Drawing.Point(517, 64);
-            this.comboLatenta.Name = "comboLatenta";
-            this.comboLatenta.Size = new System.Drawing.Size(121, 23);
-            this.comboLatenta.TabIndex = 21;
-            this.comboLatenta.Text = "comboLatenta";
+            this.comboN_PEN.Location = new System.Drawing.Point(517, 64);
+            this.comboN_PEN.Name = "comboN_PEN";
+            this.comboN_PEN.Size = new System.Drawing.Size(121, 23);
+            this.comboN_PEN.TabIndex = 21;
+            this.comboN_PEN.Text = "comboN_PEN";
             // 
             // textBoxConsole
             // 
@@ -312,13 +314,49 @@
             this.textBoxConsole.TabIndex = 22;
             this.textBoxConsole.Text = "textBoxConsole";
             // 
+            // lbNR_REG
+            // 
+            this.lbNR_REG.AutoSize = true;
+            this.lbNR_REG.Location = new System.Drawing.Point(462, 99);
+            this.lbNR_REG.Name = "lbNR_REG";
+            this.lbNR_REG.Size = new System.Drawing.Size(49, 15);
+            this.lbNR_REG.TabIndex = 23;
+            this.lbNR_REG.Text = "NR_REG";
+            // 
+            // comboNR_REG
+            // 
+            this.comboNR_REG.FormattingEnabled = true;
+            this.comboNR_REG.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"});
+            this.comboNR_REG.Location = new System.Drawing.Point(517, 93);
+            this.comboNR_REG.Name = "comboNR_REG";
+            this.comboNR_REG.Size = new System.Drawing.Size(121, 23);
+            this.comboNR_REG.TabIndex = 24;
+            this.comboNR_REG.Text = "comboNR_REG";
+            // 
             // A2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboNR_REG);
+            this.Controls.Add(this.lbNR_REG);
             this.Controls.Add(this.textBoxConsole);
-            this.Controls.Add(this.comboLatenta);
+            this.Controls.Add(this.comboN_PEN);
             this.Controls.Add(this.btnSTART);
             this.Controls.Add(this.lbSIZE_DC);
             this.Controls.Add(this.comboSIZE_DC);
@@ -335,7 +373,7 @@
             this.Controls.Add(this.comboFR);
             this.Controls.Add(this.lbDC);
             this.Controls.Add(this.lbIC);
-            this.Controls.Add(this.lbLatenta);
+            this.Controls.Add(this.lbN_PEN);
             this.Controls.Add(this.lbIRmax);
             this.Controls.Add(this.lbIBS);
             this.Controls.Add(this.lbFR);
@@ -351,7 +389,7 @@
         private Label lbFR;
         private Label lbIBS;
         private Label lbIRmax;
-        private Label lbLatenta;
+        private Label lbN_PEN;
         private Label lbIC;
         private Label lbDC;
         private ComboBox comboFR;
@@ -368,7 +406,9 @@
         private ComboBox comboSIZE_DC;
         private Label lbSIZE_DC;
         private Button btnSTART;
-        private ComboBox comboLatenta;
+        private ComboBox comboN_PEN;
         private TextBox textBoxConsole;
+        private Label lbNR_REG;
+        private ComboBox comboNR_REG;
     }
 }

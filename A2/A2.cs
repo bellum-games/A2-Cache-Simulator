@@ -4,42 +4,77 @@ namespace A2
 {
     public partial class A2 : Form
     {
+        private int IC, DC, SIZE_IC, SIZE_DC, IBS, IRmax, N_PEN, FR, V, D, NR_REG;
+
+        //date out:
+        //rata de procesare (nr instr raportat la nr cicli de executie)
+        //rata miss in IC si in DC (2 x rate de miss)
+        //procent din timpul total cat buffer de prefetch (IBS) e gol
+        //se vrea parametri optimi si factori de limitare in fiecare din cazuri
+
+        //A2:
+        //det. influenta nr max de instr ce pot fi trimise in exe asupra ratei de procesare (IRmax)(2.1)
+        //(set limitat de reg) care e numarul optim de registri? :(2.2)
+        //->varianta uniport cache date (DC): o singura instr cu ref la mem se poate executa
+        //->varianta biport cache date (DC): 2 instr cu ref la mem se pot executa L + L sau L + S
+        //Pt valoarea optima de la 2.2 a nr de reg. studiati rata de procesare (IRmax) pe cache date(DC) uni sau biport
+
         public A2()
         {
             InitializeComponent();
-            HistoryPrevious();
+            PreviousHistory();
         }
 
         private void btnSTART_Click(object sender, EventArgs e)
         {
-            if (SafeStart() == false)
+            if (!SafeStart())
             {
                 textBoxConsole.Text = "You haven't selected enough parameters for simulation to start";
                 return;
             }
-
+            IC = int.Parse((string)comboIC.SelectedItem);
+            DC = int.Parse((string)comboDC.SelectedItem);
+            SIZE_IC = int.Parse((string)comboSIZE_IC.SelectedItem);
+            SIZE_DC = int.Parse((string)comboSIZE_DC.SelectedItem);
+            IBS = int.Parse((string)comboIBS.SelectedItem);
+            IRmax = int.Parse((string)comboIRmax.SelectedItem);
+            N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
+            FR = int.Parse((string)comboFR.SelectedItem);
+            V = int.Parse((string)comboV.SelectedItem);
+            D = int.Parse((string)comboD.SelectedItem);
+            NR_REG = int.Parse((string)comboNR_REG.SelectedItem);
+            if (!ValidParameters()) 
+            {
+                textBoxConsole.Text = "Selected paramenters can't be used at simulation, try other combination.";
+                return;
+            }
             SetFuture();
+            Simulate();
+        }
+
+        private void Simulate() //Simulate(int IC, int DC, int SIZE_IC, int SIZE_DC, int IBS, int IRmax, int N_PEN, int FR, int V, int D) 
+        {
+            //Cosmin tasks
+        }
+
+        private bool ValidParameters() 
+        {
+            if (IRmax > FR)
+                return false;
+            if (IC > IBS || DC > IBS)
+                return false;
+            if (NR_REG > IRmax)
+                return false;
+            return true;
         }
 
         private bool SafeStart() 
         {
             bool status;
-            if (
-                comboIC.SelectedIndex > -1 &&
-                comboDC.SelectedIndex > -1 &&
-                comboSIZE_IC.SelectedIndex > -1 &&
-                comboSIZE_DC.SelectedIndex > -1 &&
-                comboIBS.SelectedIndex > -1 &&
-                comboIRmax.SelectedIndex > -1 &&
-                comboLatenta.SelectedIndex > -1 &&
-                comboFR.SelectedIndex > -1 &&
-                comboV.SelectedIndex > -1 &&
-                comboD.SelectedIndex > -1
-                )
+            if (comboIC.SelectedIndex > -1 && comboDC.SelectedIndex > -1 && comboSIZE_IC.SelectedIndex > -1 && comboSIZE_DC.SelectedIndex > -1 && comboIBS.SelectedIndex > -1 && comboIRmax.SelectedIndex > -1 && comboN_PEN.SelectedIndex > -1 && comboFR.SelectedIndex > -1 && comboV.SelectedIndex > -1 && comboD.SelectedIndex > -1)
                 status = true;
             else
                 status = false;
-
             return status;
         }
 
@@ -57,15 +92,16 @@ namespace A2
                 sw.WriteLine($"comboSIZE_DC {comboSIZE_DC.SelectedIndex}");
                 sw.WriteLine($"comboIBS {comboIBS.SelectedIndex}");
                 sw.WriteLine($"comboIRmax {comboIRmax.SelectedIndex}");
-                sw.WriteLine($"comboLatenta {comboLatenta.SelectedIndex}");
+                sw.WriteLine($"comboLatenta {comboN_PEN.SelectedIndex}");
                 sw.WriteLine($"comboFR {comboFR.SelectedIndex}");
                 sw.WriteLine($"comboV {comboV.SelectedIndex}");
                 sw.WriteLine($"comboD {comboD.SelectedIndex}");
+                sw.WriteLine($"comboNR_REG {comboNR_REG.SelectedIndex}");
                 sw.Close();
             }
         }
 
-        private void HistoryPrevious() 
+        private void PreviousHistory() 
         {
             if (!File.Exists("history.txt"))
             {
@@ -83,8 +119,8 @@ namespace A2
             foreach (string row in rows) 
             {
                 string[] values = row.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                int value = Int32.Parse(values[1]);
-                switch(i) 
+                int value = int.Parse(values[1]);
+                switch(i)
                 {
                     case 0: comboIC.SelectedIndex = value; break;
                     case 1: comboDC.SelectedIndex = value; break;
@@ -92,10 +128,11 @@ namespace A2
                     case 3: comboSIZE_DC.SelectedIndex = value; break;
                     case 4: comboIBS.SelectedIndex = value; break;
                     case 5: comboIRmax.SelectedIndex = value; break;
-                    case 6: comboLatenta.SelectedIndex = value; break;
+                    case 6: comboN_PEN.SelectedIndex = value; break;
                     case 7: comboFR.SelectedIndex = value; break;
                     case 8: comboV.SelectedIndex = value; break;
                     case 9: comboD.SelectedIndex = value; break;
+                    case 10: comboNR_REG.SelectedIndex = value; break;
                 }
                 i++;
             }
