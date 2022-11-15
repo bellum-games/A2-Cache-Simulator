@@ -37,7 +37,6 @@
             this.comboFR = new System.Windows.Forms.ComboBox();
             this.comboIBS = new System.Windows.Forms.ComboBox();
             this.comboIRmax = new System.Windows.Forms.ComboBox();
-            this.txtLatenta = new System.Windows.Forms.TextBox();
             this.comboIC = new System.Windows.Forms.ComboBox();
             this.comboDC = new System.Windows.Forms.ComboBox();
             this.lbV = new System.Windows.Forms.Label();
@@ -49,6 +48,8 @@
             this.comboSIZE_DC = new System.Windows.Forms.ComboBox();
             this.lbSIZE_DC = new System.Windows.Forms.Label();
             this.btnSTART = new System.Windows.Forms.Button();
+            this.comboLatenta = new System.Windows.Forms.ComboBox();
+            this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbFR
@@ -145,14 +146,6 @@
             this.comboIRmax.Size = new System.Drawing.Size(121, 23);
             this.comboIRmax.TabIndex = 8;
             this.comboIRmax.Text = "comboIRmax";
-            // 
-            // txtLatenta
-            // 
-            this.txtLatenta.Location = new System.Drawing.Point(517, 64);
-            this.txtLatenta.Name = "txtLatenta";
-            this.txtLatenta.Size = new System.Drawing.Size(121, 23);
-            this.txtLatenta.TabIndex = 9;
-            this.txtLatenta.Text = "1";
             // 
             // comboIC
             // 
@@ -296,11 +289,36 @@
             this.btnSTART.UseVisualStyleBackColor = true;
             this.btnSTART.Click += new System.EventHandler(this.btnSTART_Click);
             // 
+            // comboLatenta
+            // 
+            this.comboLatenta.FormattingEnabled = true;
+            this.comboLatenta.Items.AddRange(new object[] {
+            "1",
+            "10",
+            "15",
+            "20"});
+            this.comboLatenta.Location = new System.Drawing.Point(517, 64);
+            this.comboLatenta.Name = "comboLatenta";
+            this.comboLatenta.Size = new System.Drawing.Size(121, 23);
+            this.comboLatenta.TabIndex = 21;
+            this.comboLatenta.Text = "comboLatenta";
+            // 
+            // textBoxConsole
+            // 
+            this.textBoxConsole.Location = new System.Drawing.Point(11, 44);
+            this.textBoxConsole.Multiline = true;
+            this.textBoxConsole.Name = "textBoxConsole";
+            this.textBoxConsole.Size = new System.Drawing.Size(257, 397);
+            this.textBoxConsole.TabIndex = 22;
+            this.textBoxConsole.Text = "textBoxConsole";
+            // 
             // A2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxConsole);
+            this.Controls.Add(this.comboLatenta);
             this.Controls.Add(this.btnSTART);
             this.Controls.Add(this.lbSIZE_DC);
             this.Controls.Add(this.comboSIZE_DC);
@@ -312,7 +330,6 @@
             this.Controls.Add(this.lbV);
             this.Controls.Add(this.comboDC);
             this.Controls.Add(this.comboIC);
-            this.Controls.Add(this.txtLatenta);
             this.Controls.Add(this.comboIRmax);
             this.Controls.Add(this.comboIBS);
             this.Controls.Add(this.comboFR);
@@ -324,7 +341,6 @@
             this.Controls.Add(this.lbFR);
             this.Name = "A2";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.A2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +357,6 @@
         private ComboBox comboFR;
         private ComboBox comboIBS;
         private ComboBox comboIRmax;
-        private TextBox txtLatenta;
         private ComboBox comboIC;
         private ComboBox comboDC;
         private Label lbV;
@@ -353,5 +368,7 @@
         private ComboBox comboSIZE_DC;
         private Label lbSIZE_DC;
         private Button btnSTART;
+        private ComboBox comboLatenta;
+        private TextBox textBoxConsole;
     }
 }
