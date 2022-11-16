@@ -53,6 +53,7 @@ namespace A2
             }
             SetFuture();
             Simulate();
+            WriteResults();
         }
 
         private void Simulate() //Simulate(int IC, int DC, int SIZE_IC, int SIZE_DC, int IBS, int IRmax, int N_PEN, int FR, int V, int D) 
@@ -90,6 +91,32 @@ namespace A2
             else
                 status = false;
             return status;
+        }
+
+        private void WriteResults()
+        {
+            if (!File.Exists("results.csv"))
+            {
+                File.Create("results.csv");
+            }
+            using (StreamWriter sw = new StreamWriter("results.csv"))
+            {
+                MissRateIC = 0;
+                MissRateDC = 0; 
+                PercentageIBS_Empty = 0;
+                Influence_IRmax = 0; 
+                OptimalREG_Number = 0;
+
+                sw.WriteLine(",,,,");
+                sw.WriteLine(",,,,");
+                sw.WriteLine(",,Data,Result");
+                sw.WriteLine($",,Miss Rate in IC,{MissRateIC}");
+                sw.WriteLine($",,Miss Rate in DC,{MissRateDC}");
+                sw.WriteLine($",,Percentage of prefetch buffer that is empty,{PercentageIBS_Empty}");
+                sw.WriteLine($",,Influence of IRmax on performance,{Influence_IRmax}");
+                sw.WriteLine($",,Optimal number of registers,{OptimalREG_Number}");
+                sw.Close();
+            }
         }
 
         private void SetFuture()
