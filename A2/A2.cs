@@ -4,7 +4,9 @@ namespace A2
 {
     public partial class A2 : Form
     {
-        private int IC, DC, SIZE_IC, SIZE_DC, IBS, IRmax, N_PEN, FR, V, D, NR_REG;
+        private int IC, DC, SIZE_IC, SIZE_DC, IBS, IRmax, N_PEN, FR, V, D, NR_REG, NR_PORT;
+
+        private int MissRateIC, MissRateDC, PercentageIBS_Empty, Influence_IRmax, OptimalREG_Number;
 
         //date out:
         //rata de procesare (nr instr raportat la nr cicli de executie)
@@ -36,13 +38,14 @@ namespace A2
             DC = int.Parse((string)comboDC.SelectedItem);
             SIZE_IC = int.Parse((string)comboSIZE_IC.SelectedItem);
             SIZE_DC = int.Parse((string)comboSIZE_DC.SelectedItem);
-            IBS = int.Parse((string)comboIBS.SelectedItem);
             IRmax = int.Parse((string)comboIRmax.SelectedItem);
-            N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
+            IBS = int.Parse((string)comboIBS.SelectedItem);
             FR = int.Parse((string)comboFR.SelectedItem);
             V = int.Parse((string)comboV.SelectedItem);
             D = int.Parse((string)comboD.SelectedItem);
+            N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
             NR_REG = int.Parse((string)comboNR_REG.SelectedItem);
+            NR_PORT = int.Parse((string)comboNR_PORT.SelectedItem);
             if (!ValidParameters()) 
             {
                 textBoxConsole.Text = "Selected paramenters can't be used at simulation, try other combination.";
@@ -71,7 +74,18 @@ namespace A2
         private bool SafeStart() 
         {
             bool status;
-            if (comboIC.SelectedIndex > -1 && comboDC.SelectedIndex > -1 && comboSIZE_IC.SelectedIndex > -1 && comboSIZE_DC.SelectedIndex > -1 && comboIBS.SelectedIndex > -1 && comboIRmax.SelectedIndex > -1 && comboN_PEN.SelectedIndex > -1 && comboFR.SelectedIndex > -1 && comboV.SelectedIndex > -1 && comboD.SelectedIndex > -1)
+            if (comboIC.SelectedIndex > -1 && 
+                comboDC.SelectedIndex > -1 && 
+                comboSIZE_IC.SelectedIndex > -1 && 
+                comboSIZE_DC.SelectedIndex > -1 &&
+                comboIRmax.SelectedIndex > -1 && 
+                comboIBS.SelectedIndex > -1 &&
+                comboFR.SelectedIndex > -1 &&
+                comboV.SelectedIndex > -1 && 
+                comboD.SelectedIndex > -1 &&
+                comboN_PEN.SelectedIndex > -1 &&
+                comboNR_REG.SelectedIndex > -1 &&
+                comboNR_PORT.SelectedIndex > -1)
                 status = true;
             else
                 status = false;
@@ -90,13 +104,14 @@ namespace A2
                 sw.WriteLine($"comboDC {comboDC.SelectedIndex}");
                 sw.WriteLine($"comboSIZE_IC {comboSIZE_IC.SelectedIndex}");
                 sw.WriteLine($"comboSIZE_DC {comboSIZE_DC.SelectedIndex}");
-                sw.WriteLine($"comboIBS {comboIBS.SelectedIndex}");
                 sw.WriteLine($"comboIRmax {comboIRmax.SelectedIndex}");
-                sw.WriteLine($"comboLatenta {comboN_PEN.SelectedIndex}");
+                sw.WriteLine($"comboIBS {comboIBS.SelectedIndex}");
                 sw.WriteLine($"comboFR {comboFR.SelectedIndex}");
                 sw.WriteLine($"comboV {comboV.SelectedIndex}");
                 sw.WriteLine($"comboD {comboD.SelectedIndex}");
+                sw.WriteLine($"comboN_PEN {comboN_PEN.SelectedIndex}");
                 sw.WriteLine($"comboNR_REG {comboNR_REG.SelectedIndex}");
+                sw.WriteLine($"comboNR_PORT {comboNR_PORT.SelectedIndex}");
                 sw.Close();
             }
         }
@@ -126,13 +141,14 @@ namespace A2
                     case 1: comboDC.SelectedIndex = value; break;
                     case 2: comboSIZE_IC.SelectedIndex = value; break;
                     case 3: comboSIZE_DC.SelectedIndex = value; break;
-                    case 4: comboIBS.SelectedIndex = value; break;
-                    case 5: comboIRmax.SelectedIndex = value; break;
-                    case 6: comboN_PEN.SelectedIndex = value; break;
-                    case 7: comboFR.SelectedIndex = value; break;
-                    case 8: comboV.SelectedIndex = value; break;
-                    case 9: comboD.SelectedIndex = value; break;
+                    case 4: comboIRmax.SelectedIndex = value; break;
+                    case 5: comboIBS.SelectedIndex = value; break;
+                    case 6: comboFR.SelectedIndex = value; break;
+                    case 7: comboV.SelectedIndex = value; break;
+                    case 8: comboD.SelectedIndex = value; break;
+                    case 9: comboN_PEN.SelectedIndex = value; break;
                     case 10: comboNR_REG.SelectedIndex = value; break;
+                    case 11: comboNR_PORT.SelectedIndex = value; break;
                 }
                 i++;
             }
