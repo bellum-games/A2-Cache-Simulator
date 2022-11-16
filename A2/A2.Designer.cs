@@ -52,12 +52,14 @@
             this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.lbNR_REG = new System.Windows.Forms.Label();
             this.comboNR_REG = new System.Windows.Forms.ComboBox();
+            this.lbNR_PORT = new System.Windows.Forms.Label();
+            this.comboNR_PORT = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbFR
             // 
             this.lbFR.AutoSize = true;
-            this.lbFR.Location = new System.Drawing.Point(644, 9);
+            this.lbFR.Location = new System.Drawing.Point(638, 186);
             this.lbFR.Name = "lbFR";
             this.lbFR.Size = new System.Drawing.Size(23, 15);
             this.lbFR.TabIndex = 0;
@@ -66,7 +68,7 @@
             // lbIBS
             // 
             this.lbIBS.AutoSize = true;
-            this.lbIBS.Location = new System.Drawing.Point(485, 9);
+            this.lbIBS.Location = new System.Drawing.Point(635, 157);
             this.lbIBS.Name = "lbIBS";
             this.lbIBS.Size = new System.Drawing.Size(26, 15);
             this.lbIBS.TabIndex = 1;
@@ -75,7 +77,7 @@
             // lbIRmax
             // 
             this.lbIRmax.AutoSize = true;
-            this.lbIRmax.Location = new System.Drawing.Point(468, 38);
+            this.lbIRmax.Location = new System.Drawing.Point(618, 128);
             this.lbIRmax.Name = "lbIRmax";
             this.lbIRmax.Size = new System.Drawing.Size(43, 15);
             this.lbIRmax.TabIndex = 2;
@@ -84,7 +86,7 @@
             // lbN_PEN
             // 
             this.lbN_PEN.AutoSize = true;
-            this.lbN_PEN.Location = new System.Drawing.Point(462, 67);
+            this.lbN_PEN.Location = new System.Drawing.Point(615, 272);
             this.lbN_PEN.Name = "lbN_PEN";
             this.lbN_PEN.Size = new System.Drawing.Size(46, 15);
             this.lbN_PEN.TabIndex = 3;
@@ -93,7 +95,7 @@
             // lbIC
             // 
             this.lbIC.AutoSize = true;
-            this.lbIC.Location = new System.Drawing.Point(307, 12);
+            this.lbIC.Location = new System.Drawing.Point(640, 16);
             this.lbIC.Name = "lbIC";
             this.lbIC.Size = new System.Drawing.Size(21, 15);
             this.lbIC.TabIndex = 4;
@@ -102,7 +104,7 @@
             // lbDC
             // 
             this.lbDC.AutoSize = true;
-            this.lbDC.Location = new System.Drawing.Point(302, 38);
+            this.lbDC.Location = new System.Drawing.Point(635, 41);
             this.lbDC.Name = "lbDC";
             this.lbDC.Size = new System.Drawing.Size(26, 15);
             this.lbDC.TabIndex = 5;
@@ -115,7 +117,7 @@
             "4",
             "8",
             "16"});
-            this.comboFR.Location = new System.Drawing.Point(667, 6);
+            this.comboFR.Location = new System.Drawing.Point(667, 183);
             this.comboFR.Name = "comboFR";
             this.comboFR.Size = new System.Drawing.Size(121, 23);
             this.comboFR.TabIndex = 6;
@@ -129,7 +131,7 @@
             "8",
             "16",
             "32"});
-            this.comboIBS.Location = new System.Drawing.Point(517, 6);
+            this.comboIBS.Location = new System.Drawing.Point(667, 154);
             this.comboIBS.Name = "comboIBS";
             this.comboIBS.Size = new System.Drawing.Size(121, 23);
             this.comboIBS.TabIndex = 7;
@@ -143,7 +145,7 @@
             "4",
             "8",
             "16"});
-            this.comboIRmax.Location = new System.Drawing.Point(517, 35);
+            this.comboIRmax.Location = new System.Drawing.Point(667, 125);
             this.comboIRmax.Name = "comboIRmax";
             this.comboIRmax.Size = new System.Drawing.Size(121, 23);
             this.comboIRmax.TabIndex = 8;
@@ -157,7 +159,7 @@
             "4",
             "8",
             "16"});
-            this.comboIC.Location = new System.Drawing.Point(334, 9);
+            this.comboIC.Location = new System.Drawing.Point(667, 9);
             this.comboIC.Name = "comboIC";
             this.comboIC.Size = new System.Drawing.Size(121, 23);
             this.comboIC.TabIndex = 10;
@@ -171,7 +173,7 @@
             "4",
             "8",
             "16"});
-            this.comboDC.Location = new System.Drawing.Point(334, 38);
+            this.comboDC.Location = new System.Drawing.Point(667, 38);
             this.comboDC.Name = "comboDC";
             this.comboDC.Size = new System.Drawing.Size(121, 23);
             this.comboDC.TabIndex = 11;
@@ -180,7 +182,7 @@
             // lbV
             // 
             this.lbV.AutoSize = true;
-            this.lbV.Location = new System.Drawing.Point(650, 38);
+            this.lbV.Location = new System.Drawing.Point(644, 215);
             this.lbV.Name = "lbV";
             this.lbV.Size = new System.Drawing.Size(17, 15);
             this.lbV.TabIndex = 12;
@@ -192,7 +194,7 @@
             this.comboV.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.comboV.Location = new System.Drawing.Point(667, 35);
+            this.comboV.Location = new System.Drawing.Point(667, 212);
             this.comboV.Name = "comboV";
             this.comboV.Size = new System.Drawing.Size(121, 23);
             this.comboV.TabIndex = 13;
@@ -201,7 +203,7 @@
             // lbD
             // 
             this.lbD.AutoSize = true;
-            this.lbD.Location = new System.Drawing.Point(649, 67);
+            this.lbD.Location = new System.Drawing.Point(643, 243);
             this.lbD.Name = "lbD";
             this.lbD.Size = new System.Drawing.Size(18, 15);
             this.lbD.TabIndex = 14;
@@ -213,7 +215,7 @@
             this.comboD.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.comboD.Location = new System.Drawing.Point(667, 64);
+            this.comboD.Location = new System.Drawing.Point(667, 240);
             this.comboD.Name = "comboD";
             this.comboD.Size = new System.Drawing.Size(121, 23);
             this.comboD.TabIndex = 15;
@@ -222,7 +224,7 @@
             // lbSIZE_IC
             // 
             this.lbSIZE_IC.AutoSize = true;
-            this.lbSIZE_IC.Location = new System.Drawing.Point(280, 72);
+            this.lbSIZE_IC.Location = new System.Drawing.Point(613, 70);
             this.lbSIZE_IC.Name = "lbSIZE_IC";
             this.lbSIZE_IC.Size = new System.Drawing.Size(48, 15);
             this.lbSIZE_IC.TabIndex = 16;
@@ -244,7 +246,7 @@
             "2048",
             "4096",
             "8192"});
-            this.comboSIZE_IC.Location = new System.Drawing.Point(334, 67);
+            this.comboSIZE_IC.Location = new System.Drawing.Point(667, 67);
             this.comboSIZE_IC.Name = "comboSIZE_IC";
             this.comboSIZE_IC.Size = new System.Drawing.Size(121, 23);
             this.comboSIZE_IC.TabIndex = 17;
@@ -266,7 +268,7 @@
             "2048",
             "4096",
             "8192"});
-            this.comboSIZE_DC.Location = new System.Drawing.Point(334, 96);
+            this.comboSIZE_DC.Location = new System.Drawing.Point(667, 96);
             this.comboSIZE_DC.Name = "comboSIZE_DC";
             this.comboSIZE_DC.Size = new System.Drawing.Size(121, 23);
             this.comboSIZE_DC.TabIndex = 18;
@@ -275,7 +277,7 @@
             // lbSIZE_DC
             // 
             this.lbSIZE_DC.AutoSize = true;
-            this.lbSIZE_DC.Location = new System.Drawing.Point(275, 99);
+            this.lbSIZE_DC.Location = new System.Drawing.Point(608, 99);
             this.lbSIZE_DC.Name = "lbSIZE_DC";
             this.lbSIZE_DC.Size = new System.Drawing.Size(53, 15);
             this.lbSIZE_DC.TabIndex = 19;
@@ -283,7 +285,7 @@
             // 
             // btnSTART
             // 
-            this.btnSTART.Location = new System.Drawing.Point(12, 12);
+            this.btnSTART.Location = new System.Drawing.Point(12, 8);
             this.btnSTART.Name = "btnSTART";
             this.btnSTART.Size = new System.Drawing.Size(75, 23);
             this.btnSTART.TabIndex = 20;
@@ -299,7 +301,7 @@
             "10",
             "15",
             "20"});
-            this.comboN_PEN.Location = new System.Drawing.Point(517, 64);
+            this.comboN_PEN.Location = new System.Drawing.Point(667, 269);
             this.comboN_PEN.Name = "comboN_PEN";
             this.comboN_PEN.Size = new System.Drawing.Size(121, 23);
             this.comboN_PEN.TabIndex = 21;
@@ -307,7 +309,7 @@
             // 
             // textBoxConsole
             // 
-            this.textBoxConsole.Location = new System.Drawing.Point(11, 44);
+            this.textBoxConsole.Location = new System.Drawing.Point(12, 38);
             this.textBoxConsole.Multiline = true;
             this.textBoxConsole.Name = "textBoxConsole";
             this.textBoxConsole.Size = new System.Drawing.Size(257, 397);
@@ -317,11 +319,11 @@
             // lbNR_REG
             // 
             this.lbNR_REG.AutoSize = true;
-            this.lbNR_REG.Location = new System.Drawing.Point(462, 99);
+            this.lbNR_REG.Location = new System.Drawing.Point(609, 301);
             this.lbNR_REG.Name = "lbNR_REG";
-            this.lbNR_REG.Size = new System.Drawing.Size(49, 15);
+            this.lbNR_REG.Size = new System.Drawing.Size(52, 15);
             this.lbNR_REG.TabIndex = 23;
-            this.lbNR_REG.Text = "NR_REG";
+            this.lbNR_REG.Text = "NR_REG:";
             // 
             // comboNR_REG
             // 
@@ -342,17 +344,40 @@
             "14",
             "15",
             "16"});
-            this.comboNR_REG.Location = new System.Drawing.Point(517, 93);
+            this.comboNR_REG.Location = new System.Drawing.Point(667, 298);
             this.comboNR_REG.Name = "comboNR_REG";
             this.comboNR_REG.Size = new System.Drawing.Size(121, 23);
             this.comboNR_REG.TabIndex = 24;
             this.comboNR_REG.Text = "comboNR_REG";
+            // 
+            // lbNR_PORT
+            // 
+            this.lbNR_PORT.AutoSize = true;
+            this.lbNR_PORT.Location = new System.Drawing.Point(602, 330);
+            this.lbNR_PORT.Name = "lbNR_PORT";
+            this.lbNR_PORT.Size = new System.Drawing.Size(59, 15);
+            this.lbNR_PORT.TabIndex = 25;
+            this.lbNR_PORT.Text = "NR_PORT:";
+            // 
+            // comboNR_PORT
+            // 
+            this.comboNR_PORT.FormattingEnabled = true;
+            this.comboNR_PORT.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.comboNR_PORT.Location = new System.Drawing.Point(667, 327);
+            this.comboNR_PORT.Name = "comboNR_PORT";
+            this.comboNR_PORT.Size = new System.Drawing.Size(121, 23);
+            this.comboNR_PORT.TabIndex = 26;
+            this.comboNR_PORT.Text = "comboNR_PORT";
             // 
             // A2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboNR_PORT);
+            this.Controls.Add(this.lbNR_PORT);
             this.Controls.Add(this.comboNR_REG);
             this.Controls.Add(this.lbNR_REG);
             this.Controls.Add(this.textBoxConsole);
@@ -410,5 +435,7 @@
         private TextBox textBoxConsole;
         private Label lbNR_REG;
         private ComboBox comboNR_REG;
+        private Label lbNR_PORT;
+        private ComboBox comboNR_PORT;
     }
 }
