@@ -4,8 +4,8 @@ namespace A2
 {
     public partial class A2 : Form
     {
-        private int IC, DC, SIZE_IC, SIZE_DC, IBS, IRmax, N_PEN, FR, V, D, NR_REG, NR_PORT;
-
+        private int SIZE_IC, SIZE_DC, N_PEN, V, D, NR_PORT;
+        private int IC, DC, IBS, IRmax, FR, NR_REG;
         private int MissRateIC, MissRateDC, PercentageIBS_Empty, Influence_IRmax, OptimalREG_Number;
 
         //date out:
@@ -83,7 +83,6 @@ namespace A2
 
         private bool SafeStart() 
         {
-            bool status;
             if (
                 comboSIZE_IC.SelectedIndex > -1 && 
                 comboSIZE_DC.SelectedIndex > -1 &&
@@ -93,10 +92,9 @@ namespace A2
                 comboN_PEN.SelectedIndex > -1 &&
                 comboNR_REG.SelectedIndex > -1 &&
                 comboNR_PORT.SelectedIndex > -1)
-                status = true;
+                return true;
             else
-                status = false;
-            return status;
+                return false;
         }
 
         private void WriteResults()
@@ -157,18 +155,14 @@ namespace A2
                 int value = int.Parse(values[1]);
                 switch(i)
                 {
-                    //case 0: comboIC.SelectedIndex = value; break;
-                    //case 1: comboDC.SelectedIndex = value; break;
-                    case 2: comboSIZE_IC.SelectedIndex = value; break;
-                    case 3: comboSIZE_DC.SelectedIndex = value; break;
-                    case 4: comboIRmax.SelectedIndex = value; break;
-                    case 5: comboIBS.SelectedIndex = value; break;
-                    case 6: comboFR.SelectedIndex = value; break;
-                    //case 7: comboV.SelectedIndex = value; break;
-                    //case 8: comboD.SelectedIndex = value; break;
-                    case 9: comboN_PEN.SelectedIndex = value; break;
-                    case 10: comboNR_REG.SelectedIndex = value; break;
-                    case 11: comboNR_PORT.SelectedIndex = value; break;
+                    case 0: comboSIZE_IC.SelectedIndex = value; break;
+                    case 1: comboSIZE_DC.SelectedIndex = value; break;
+                    case 2: comboIRmax.SelectedIndex = value; break;
+                    case 3: comboIBS.SelectedIndex = value; break;
+                    case 4: comboFR.SelectedIndex = value; break;
+                    case 5: comboN_PEN.SelectedIndex = value; break;
+                    case 6: comboNR_REG.SelectedIndex = value; break;
+                    case 7: comboNR_PORT.SelectedIndex = value; break;
                 }
                 i++;
             }
