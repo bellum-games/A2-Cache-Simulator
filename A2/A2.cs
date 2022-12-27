@@ -23,8 +23,21 @@ namespace A2
 
         public A2()
         {
+            IOneeded();
             InitializeComponent();
             PreviousHistory();
+        }
+
+        private void IOneeded()
+        {
+            if (!File.Exists("history.txt"))
+            {
+                File.Create("history.txt");
+            }
+            if (!File.Exists("results.csv"))
+            {
+                File.Create("results.csv");
+            }
         }
 
         private void btnSTART_Click(object sender, EventArgs e)
@@ -34,15 +47,11 @@ namespace A2
                 textBoxConsole.Text = "You haven't selected enough parameters for simulation to start";
                 return;
             }
-            IC = int.Parse((string)comboIC.SelectedItem);
-            DC = int.Parse((string)comboDC.SelectedItem);
             SIZE_IC = int.Parse((string)comboSIZE_IC.SelectedItem);
             SIZE_DC = int.Parse((string)comboSIZE_DC.SelectedItem);
             IRmax = int.Parse((string)comboIRmax.SelectedItem);
             IBS = int.Parse((string)comboIBS.SelectedItem);
             FR = int.Parse((string)comboFR.SelectedItem);
-            V = int.Parse((string)comboV.SelectedItem);
-            D = int.Parse((string)comboD.SelectedItem);
             N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
             NR_REG = int.Parse((string)comboNR_REG.SelectedItem);
             NR_PORT = int.Parse((string)comboNR_PORT.SelectedItem);
@@ -75,15 +84,12 @@ namespace A2
         private bool SafeStart() 
         {
             bool status;
-            if (comboIC.SelectedIndex > -1 && 
-                comboDC.SelectedIndex > -1 && 
+            if (
                 comboSIZE_IC.SelectedIndex > -1 && 
                 comboSIZE_DC.SelectedIndex > -1 &&
                 comboIRmax.SelectedIndex > -1 && 
                 comboIBS.SelectedIndex > -1 &&
                 comboFR.SelectedIndex > -1 &&
-                comboV.SelectedIndex > -1 && 
-                comboD.SelectedIndex > -1 &&
                 comboN_PEN.SelectedIndex > -1 &&
                 comboNR_REG.SelectedIndex > -1 &&
                 comboNR_PORT.SelectedIndex > -1)
@@ -95,10 +101,6 @@ namespace A2
 
         private void WriteResults()
         {
-            if (!File.Exists("results.csv"))
-            {
-                File.Create("results.csv");
-            }
             using (StreamWriter sw = new StreamWriter("results.csv"))
             {
                 MissRateIC = 0;
@@ -121,21 +123,17 @@ namespace A2
 
         private void SetFuture()
         {
-            if (!File.Exists("history.txt"))
-            {
-                File.Create("history.txt");
-            }
             using (StreamWriter sw = new StreamWriter("history.txt"))
             {
-                sw.WriteLine($"comboIC {comboIC.SelectedIndex}");
-                sw.WriteLine($"comboDC {comboDC.SelectedIndex}");
+                //sw.WriteLine($"comboIC {comboIC.SelectedIndex}");
+                //sw.WriteLine($"comboDC {comboDC.SelectedIndex}");
                 sw.WriteLine($"comboSIZE_IC {comboSIZE_IC.SelectedIndex}");
                 sw.WriteLine($"comboSIZE_DC {comboSIZE_DC.SelectedIndex}");
                 sw.WriteLine($"comboIRmax {comboIRmax.SelectedIndex}");
                 sw.WriteLine($"comboIBS {comboIBS.SelectedIndex}");
                 sw.WriteLine($"comboFR {comboFR.SelectedIndex}");
-                sw.WriteLine($"comboV {comboV.SelectedIndex}");
-                sw.WriteLine($"comboD {comboD.SelectedIndex}");
+                //sw.WriteLine($"comboV {comboV.SelectedIndex}");
+                //sw.WriteLine($"comboD {comboD.SelectedIndex}");
                 sw.WriteLine($"comboN_PEN {comboN_PEN.SelectedIndex}");
                 sw.WriteLine($"comboNR_REG {comboNR_REG.SelectedIndex}");
                 sw.WriteLine($"comboNR_PORT {comboNR_PORT.SelectedIndex}");
@@ -145,14 +143,9 @@ namespace A2
 
         private void PreviousHistory() 
         {
-            if (!File.Exists("history.txt"))
-            {
-                File.Create("history.txt");
-            }
-            else if (File.Exists("history.txt")) 
-            {
-                GetPrevious(File.ReadAllText("history.txt"));
-            }
+            string allText = File.ReadAllText("history.txt");
+            if (!allText.Equals(string.Empty))
+                GetPrevious(allText);
         }
         private void GetPrevious(string allText) 
         {
@@ -164,15 +157,15 @@ namespace A2
                 int value = int.Parse(values[1]);
                 switch(i)
                 {
-                    case 0: comboIC.SelectedIndex = value; break;
-                    case 1: comboDC.SelectedIndex = value; break;
+                    //case 0: comboIC.SelectedIndex = value; break;
+                    //case 1: comboDC.SelectedIndex = value; break;
                     case 2: comboSIZE_IC.SelectedIndex = value; break;
                     case 3: comboSIZE_DC.SelectedIndex = value; break;
                     case 4: comboIRmax.SelectedIndex = value; break;
                     case 5: comboIBS.SelectedIndex = value; break;
                     case 6: comboFR.SelectedIndex = value; break;
-                    case 7: comboV.SelectedIndex = value; break;
-                    case 8: comboD.SelectedIndex = value; break;
+                    //case 7: comboV.SelectedIndex = value; break;
+                    //case 8: comboD.SelectedIndex = value; break;
                     case 9: comboN_PEN.SelectedIndex = value; break;
                     case 10: comboNR_REG.SelectedIndex = value; break;
                     case 11: comboNR_PORT.SelectedIndex = value; break;
