@@ -65,11 +65,6 @@ namespace A2
             WriteResults();
         }
 
-        private void Simulate() //Simulate(int IC, int DC, int SIZE_IC, int SIZE_DC, int IBS, int IRmax, int N_PEN, int FR, int V, int D) 
-        {
-            //Cosmin tasks
-        }
-
         private bool ValidParameters() 
         {
             if (IRmax > FR)
@@ -145,6 +140,7 @@ namespace A2
             if (!allText.Equals(string.Empty))
                 GetPrevious(allText);
         }
+
         private void GetPrevious(string allText) 
         {
             string[] rows = allText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
@@ -166,6 +162,10 @@ namespace A2
                 }
                 i++;
             }
+        }
+
+        private void Simulate()
+        {
         }
     }
 }

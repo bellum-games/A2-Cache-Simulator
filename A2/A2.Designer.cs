@@ -78,11 +78,11 @@
             // lbN_PEN
             // 
             this.lbN_PEN.AutoSize = true;
-            this.lbN_PEN.Location = new System.Drawing.Point(615, 215);
+            this.lbN_PEN.Location = new System.Drawing.Point(533, 215);
             this.lbN_PEN.Name = "lbN_PEN";
-            this.lbN_PEN.Size = new System.Drawing.Size(46, 15);
+            this.lbN_PEN.Size = new System.Drawing.Size(128, 15);
             this.lbN_PEN.TabIndex = 3;
-            this.lbN_PEN.Text = "N_PEN:";
+            this.lbN_PEN.Text = "N_PEN (miss in cache):";
             // 
             // comboFR
             // 
@@ -189,7 +189,7 @@
             // 
             // btnSTART
             // 
-            this.btnSTART.Location = new System.Drawing.Point(12, 8);
+            this.btnSTART.Location = new System.Drawing.Point(713, 12);
             this.btnSTART.Name = "btnSTART";
             this.btnSTART.Size = new System.Drawing.Size(75, 23);
             this.btnSTART.TabIndex = 20;
@@ -213,10 +213,10 @@
             // 
             // textBoxConsole
             // 
-            this.textBoxConsole.Location = new System.Drawing.Point(12, 38);
+            this.textBoxConsole.Location = new System.Drawing.Point(12, 13);
             this.textBoxConsole.Multiline = true;
             this.textBoxConsole.Name = "textBoxConsole";
-            this.textBoxConsole.Size = new System.Drawing.Size(257, 397);
+            this.textBoxConsole.Size = new System.Drawing.Size(298, 198);
             this.textBoxConsole.TabIndex = 22;
             this.textBoxConsole.Text = "textBoxConsole";
             // 
@@ -279,13 +279,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(928, 553);
+            this.Controls.Add(this.comboN_PEN);
+            this.Controls.Add(this.lbN_PEN);
             this.Controls.Add(this.comboNR_PORT);
             this.Controls.Add(this.lbNR_PORT);
             this.Controls.Add(this.comboNR_REG);
             this.Controls.Add(this.lbNR_REG);
             this.Controls.Add(this.textBoxConsole);
-            this.Controls.Add(this.comboN_PEN);
             this.Controls.Add(this.btnSTART);
             this.Controls.Add(this.lbSIZE_DC);
             this.Controls.Add(this.comboSIZE_DC);
@@ -294,12 +295,11 @@
             this.Controls.Add(this.comboIRmax);
             this.Controls.Add(this.comboIBS);
             this.Controls.Add(this.comboFR);
-            this.Controls.Add(this.lbN_PEN);
             this.Controls.Add(this.lbIRmax);
             this.Controls.Add(this.lbIBS);
             this.Controls.Add(this.lbFR);
             this.Name = "A2";
-            this.Text = " ";
+            this.Text = " A2 Cache Simulator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
