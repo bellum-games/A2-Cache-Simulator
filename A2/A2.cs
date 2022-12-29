@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 
 namespace A2
@@ -23,9 +24,27 @@ namespace A2
 
         public A2()
         {
-            IOneeded();
             InitializeComponent();
-            PreviousHistory();
+            IOneeded();
+            SetComboFromHistory();
+        }
+
+        private void btnSTART_Click(object sender, EventArgs e)
+        {
+            if (!SafeStart())
+            {
+                textBoxConsole.Text = "You haven't selected enough parameters for simulation to start";
+                return;
+            }
+            SetEnviroment();
+            if (!ValidParameters()) 
+            {
+                textBoxConsole.Text = "Selected paramenters can't be used at simulation, try other combination.";
+                return;
+            }
+            SetComboForFuture();
+            Simulate();
+            WriteResults();
         }
 
         private void IOneeded()
@@ -40,32 +59,7 @@ namespace A2
             }
         }
 
-        private void btnSTART_Click(object sender, EventArgs e)
-        {
-            if (!SafeStart())
-            {
-                textBoxConsole.Text = "You haven't selected enough parameters for simulation to start";
-                return;
-            }
-            SIZE_IC = int.Parse((string)comboSIZE_IC.SelectedItem);
-            SIZE_DC = int.Parse((string)comboSIZE_DC.SelectedItem);
-            IRmax = int.Parse((string)comboIRmax.SelectedItem);
-            IBS = int.Parse((string)comboIBS.SelectedItem);
-            FR = int.Parse((string)comboFR.SelectedItem);
-            N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
-            NR_REG = int.Parse((string)comboNR_REG.SelectedItem);
-            NR_PORT = int.Parse((string)comboNR_PORT.SelectedItem);
-            if (!ValidParameters()) 
-            {
-                textBoxConsole.Text = "Selected paramenters can't be used at simulation, try other combination.";
-                return;
-            }
-            SetFuture();
-            Simulate();
-            WriteResults();
-        }
-
-        private bool ValidParameters() 
+        private bool ValidParameters()
         {
             if (IRmax > FR)
                 return false;
@@ -76,12 +70,12 @@ namespace A2
             return true;
         }
 
-        private bool SafeStart() 
+        private bool SafeStart()
         {
             if (
-                comboSIZE_IC.SelectedIndex > -1 && 
+                comboSIZE_IC.SelectedIndex > -1 &&
                 comboSIZE_DC.SelectedIndex > -1 &&
-                comboIRmax.SelectedIndex > -1 && 
+                comboIRmax.SelectedIndex > -1 &&
                 comboIBS.SelectedIndex > -1 &&
                 comboFR.SelectedIndex > -1 &&
                 comboN_PEN.SelectedIndex > -1 &&
@@ -92,29 +86,19 @@ namespace A2
                 return false;
         }
 
-        private void WriteResults()
+        private void SetEnviroment() 
         {
-            using (StreamWriter sw = new StreamWriter("results.csv"))
-            {
-                MissRateIC = 0;
-                MissRateDC = 0; 
-                PercentageIBS_Empty = 0;
-                Influence_IRmax = 0; 
-                OptimalREG_Number = 0;
-
-                sw.WriteLine(",,,,");
-                sw.WriteLine(",,,,");
-                sw.WriteLine(",,Data,Result");
-                sw.WriteLine($",,Miss Rate in IC,{MissRateIC}");
-                sw.WriteLine($",,Miss Rate in DC,{MissRateDC}");
-                sw.WriteLine($",,Percentage of prefetch buffer that is empty,{PercentageIBS_Empty}");
-                sw.WriteLine($",,Influence of IRmax on performance,{Influence_IRmax}");
-                sw.WriteLine($",,Optimal number of registers,{OptimalREG_Number}");
-                sw.Close();
-            }
+            SIZE_IC = int.Parse((string)comboSIZE_IC.SelectedItem);
+            SIZE_DC = int.Parse((string)comboSIZE_DC.SelectedItem);
+            IRmax = int.Parse((string)comboIRmax.SelectedItem);
+            IBS = int.Parse((string)comboIBS.SelectedItem);
+            FR = int.Parse((string)comboFR.SelectedItem);
+            N_PEN = int.Parse((string)comboN_PEN.SelectedItem);
+            NR_REG = int.Parse((string)comboNR_REG.SelectedItem);
+            NR_PORT = int.Parse((string)comboNR_PORT.SelectedItem);
         }
 
-        private void SetFuture()
+        private void SetComboForFuture()
         {
             using (StreamWriter sw = new StreamWriter("history.txt"))
             {
@@ -134,38 +118,95 @@ namespace A2
             }
         }
 
-        private void PreviousHistory() 
+        private void SetComboFromHistory() 
         {
             string allText = File.ReadAllText("history.txt");
-            if (!allText.Equals(string.Empty))
-                GetPrevious(allText);
+            if (!allText.Equals(string.Empty)) 
+            {
+                string[] rows = allText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+                int i = 0;
+                foreach (string row in rows)
+                {
+                    string[] values = row.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    int value = int.Parse(values[1]);
+                    switch (i)
+                    {
+                        case 0: comboSIZE_IC.SelectedIndex = value; break;
+                        case 1: comboSIZE_DC.SelectedIndex = value; break;
+                        case 2: comboIRmax.SelectedIndex = value; break;
+                        case 3: comboIBS.SelectedIndex = value; break;
+                        case 4: comboFR.SelectedIndex = value; break;
+                        case 5: comboN_PEN.SelectedIndex = value; break;
+                        case 6: comboNR_REG.SelectedIndex = value; break;
+                        case 7: comboNR_PORT.SelectedIndex = value; break;
+                    }
+                    i++;
+                }
+            }
         }
 
-        private void GetPrevious(string allText) 
+        private Dictionary<string, List<Tuple<char, uint, uint>>> allTraceData = new Dictionary<string, List<Tuple<char, uint, uint>>>();
+        private void ReadTrace(FileInfo file)
         {
-            string[] rows = allText.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-            int i = 0;
-            foreach (string row in rows) 
+            List<Tuple<char, uint, uint>> traceData = new List<Tuple<char, uint, uint>>();
+            string allText = File.ReadAllText(file.FullName);
+            allText = allText.Replace("\n", "");
+            string[] rows = allText.Split(Environment.NewLine);
+            foreach(string row in rows) 
             {
-                string[] values = row.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                int value = int.Parse(values[1]);
-                switch(i)
+                string[] bits = row.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < bits.Length; i += 3) 
                 {
-                    case 0: comboSIZE_IC.SelectedIndex = value; break;
-                    case 1: comboSIZE_DC.SelectedIndex = value; break;
-                    case 2: comboIRmax.SelectedIndex = value; break;
-                    case 3: comboIBS.SelectedIndex = value; break;
-                    case 4: comboFR.SelectedIndex = value; break;
-                    case 5: comboN_PEN.SelectedIndex = value; break;
-                    case 6: comboNR_REG.SelectedIndex = value; break;
-                    case 7: comboNR_PORT.SelectedIndex = value; break;
+                    char instruction = bits[i][0];
+                    uint addressOne = uint.Parse(bits[i + 1]);
+                    uint addressTwo = uint.Parse(bits[i + 2]);
+                    traceData.Add(new Tuple<char, uint, uint>(instruction, addressOne, addressTwo));
                 }
-                i++;
+            }
+            allTraceData.Add(file.Name, traceData);
+        }
+
+        private void ReadTraces()
+        {
+            DirectoryInfo directory = new DirectoryInfo(@"..\..\..\traces\"); //get all traces inside traces folder in current project
+            FileInfo[] files = directory.GetFiles("*.TRC");
+            foreach (FileInfo file in files)
+            {
+                ReadTrace(file); //Read one trace
             }
         }
 
         private void Simulate()
         {
+            ReadTraces();
+            string s = string.Empty;
+            foreach (var item in allTraceData) 
+            {
+                s += item.Key.ToString() + " " + item.Value.Count.ToString() + Environment.NewLine;
+            }
+            textBoxConsole.Text = s;
+        }
+
+        private void WriteResults()
+        {
+            using (StreamWriter sw = new StreamWriter("results.csv"))
+            {
+                MissRateIC = 0;
+                MissRateDC = 0;
+                PercentageIBS_Empty = 0;
+                Influence_IRmax = 0;
+                OptimalREG_Number = 0;
+
+                sw.WriteLine(",,,,");
+                sw.WriteLine(",,,,");
+                sw.WriteLine(",,Data,Result");
+                sw.WriteLine($",,Miss Rate in IC,{MissRateIC}");
+                sw.WriteLine($",,Miss Rate in DC,{MissRateDC}");
+                sw.WriteLine($",,Percentage of prefetch buffer that is empty,{PercentageIBS_Empty}");
+                sw.WriteLine($",,Influence of IRmax on performance,{Influence_IRmax}");
+                sw.WriteLine($",,Optimal number of registers,{OptimalREG_Number}");
+                sw.Close();
+            }
         }
     }
 }

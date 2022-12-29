@@ -216,7 +216,8 @@
             this.textBoxConsole.Location = new System.Drawing.Point(12, 13);
             this.textBoxConsole.Multiline = true;
             this.textBoxConsole.Name = "textBoxConsole";
-            this.textBoxConsole.Size = new System.Drawing.Size(298, 198);
+            this.textBoxConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxConsole.Size = new System.Drawing.Size(515, 528);
             this.textBoxConsole.TabIndex = 22;
             this.textBoxConsole.Text = "textBoxConsole";
             // 
