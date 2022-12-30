@@ -28,61 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbFR = new System.Windows.Forms.Label();
-            this.lbIBS = new System.Windows.Forms.Label();
-            this.lbIRmax = new System.Windows.Forms.Label();
-            this.lbN_PEN = new System.Windows.Forms.Label();
             this.comboFR = new System.Windows.Forms.ComboBox();
             this.comboIBS = new System.Windows.Forms.ComboBox();
             this.comboIRmax = new System.Windows.Forms.ComboBox();
-            this.lbSIZE_IC = new System.Windows.Forms.Label();
             this.comboSIZE_IC = new System.Windows.Forms.ComboBox();
             this.comboSIZE_DC = new System.Windows.Forms.ComboBox();
-            this.lbSIZE_DC = new System.Windows.Forms.Label();
             this.btnSTART = new System.Windows.Forms.Button();
             this.comboN_PEN = new System.Windows.Forms.ComboBox();
-            this.textBoxConsole = new System.Windows.Forms.TextBox();
-            this.lbNR_REG = new System.Windows.Forms.Label();
             this.comboNR_REG = new System.Windows.Forms.ComboBox();
-            this.lbNR_PORT = new System.Windows.Forms.Label();
-            this.comboNR_PORT = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.latentaUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.biportRadio = new System.Windows.Forms.RadioButton();
+            this.uniportRadio = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboFR_DC = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboFR_IC = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnEXIT = new System.Windows.Forms.Button();
+            this.textBoxConsole = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.latentaUpDown)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbFR
-            // 
-            this.lbFR.AutoSize = true;
-            this.lbFR.Location = new System.Drawing.Point(638, 186);
-            this.lbFR.Name = "lbFR";
-            this.lbFR.Size = new System.Drawing.Size(23, 15);
-            this.lbFR.TabIndex = 0;
-            this.lbFR.Text = "FR:";
-            // 
-            // lbIBS
-            // 
-            this.lbIBS.AutoSize = true;
-            this.lbIBS.Location = new System.Drawing.Point(635, 157);
-            this.lbIBS.Name = "lbIBS";
-            this.lbIBS.Size = new System.Drawing.Size(26, 15);
-            this.lbIBS.TabIndex = 1;
-            this.lbIBS.Text = "IBS:";
-            // 
-            // lbIRmax
-            // 
-            this.lbIRmax.AutoSize = true;
-            this.lbIRmax.Location = new System.Drawing.Point(618, 128);
-            this.lbIRmax.Name = "lbIRmax";
-            this.lbIRmax.Size = new System.Drawing.Size(43, 15);
-            this.lbIRmax.TabIndex = 2;
-            this.lbIRmax.Text = "IRmax:";
-            // 
-            // lbN_PEN
-            // 
-            this.lbN_PEN.AutoSize = true;
-            this.lbN_PEN.Location = new System.Drawing.Point(533, 215);
-            this.lbN_PEN.Name = "lbN_PEN";
-            this.lbN_PEN.Size = new System.Drawing.Size(128, 15);
-            this.lbN_PEN.TabIndex = 3;
-            this.lbN_PEN.Text = "N_PEN (miss in cache):";
             // 
             // comboFR
             // 
@@ -91,7 +71,7 @@
             "4",
             "8",
             "16"});
-            this.comboFR.Location = new System.Drawing.Point(667, 183);
+            this.comboFR.Location = new System.Drawing.Point(176, 19);
             this.comboFR.Name = "comboFR";
             this.comboFR.Size = new System.Drawing.Size(121, 23);
             this.comboFR.TabIndex = 6;
@@ -105,7 +85,7 @@
             "8",
             "16",
             "32"});
-            this.comboIBS.Location = new System.Drawing.Point(667, 154);
+            this.comboIBS.Location = new System.Drawing.Point(176, 76);
             this.comboIBS.Name = "comboIBS";
             this.comboIBS.Size = new System.Drawing.Size(121, 23);
             this.comboIBS.TabIndex = 7;
@@ -119,20 +99,11 @@
             "4",
             "8",
             "16"});
-            this.comboIRmax.Location = new System.Drawing.Point(667, 125);
+            this.comboIRmax.Location = new System.Drawing.Point(176, 48);
             this.comboIRmax.Name = "comboIRmax";
             this.comboIRmax.Size = new System.Drawing.Size(121, 23);
             this.comboIRmax.TabIndex = 8;
             this.comboIRmax.Text = "comboIRmax";
-            // 
-            // lbSIZE_IC
-            // 
-            this.lbSIZE_IC.AutoSize = true;
-            this.lbSIZE_IC.Location = new System.Drawing.Point(613, 70);
-            this.lbSIZE_IC.Name = "lbSIZE_IC";
-            this.lbSIZE_IC.Size = new System.Drawing.Size(48, 15);
-            this.lbSIZE_IC.TabIndex = 16;
-            this.lbSIZE_IC.Text = "SIZE_IC:";
             // 
             // comboSIZE_IC
             // 
@@ -150,7 +121,7 @@
             "2048",
             "4096",
             "8192"});
-            this.comboSIZE_IC.Location = new System.Drawing.Point(667, 67);
+            this.comboSIZE_IC.Location = new System.Drawing.Point(73, 51);
             this.comboSIZE_IC.Name = "comboSIZE_IC";
             this.comboSIZE_IC.Size = new System.Drawing.Size(121, 23);
             this.comboSIZE_IC.TabIndex = 17;
@@ -172,24 +143,15 @@
             "2048",
             "4096",
             "8192"});
-            this.comboSIZE_DC.Location = new System.Drawing.Point(667, 96);
+            this.comboSIZE_DC.Location = new System.Drawing.Point(73, 51);
             this.comboSIZE_DC.Name = "comboSIZE_DC";
             this.comboSIZE_DC.Size = new System.Drawing.Size(121, 23);
             this.comboSIZE_DC.TabIndex = 18;
             this.comboSIZE_DC.Text = "comboSIZE_DC";
             // 
-            // lbSIZE_DC
-            // 
-            this.lbSIZE_DC.AutoSize = true;
-            this.lbSIZE_DC.Location = new System.Drawing.Point(608, 99);
-            this.lbSIZE_DC.Name = "lbSIZE_DC";
-            this.lbSIZE_DC.Size = new System.Drawing.Size(53, 15);
-            this.lbSIZE_DC.TabIndex = 19;
-            this.lbSIZE_DC.Text = "SIZE_DC:";
-            // 
             // btnSTART
             // 
-            this.btnSTART.Location = new System.Drawing.Point(713, 12);
+            this.btnSTART.Location = new System.Drawing.Point(635, 185);
             this.btnSTART.Name = "btnSTART";
             this.btnSTART.Size = new System.Drawing.Size(75, 23);
             this.btnSTART.TabIndex = 20;
@@ -205,29 +167,11 @@
             "10",
             "15",
             "20"});
-            this.comboN_PEN.Location = new System.Drawing.Point(667, 212);
+            this.comboN_PEN.Location = new System.Drawing.Point(176, 134);
             this.comboN_PEN.Name = "comboN_PEN";
             this.comboN_PEN.Size = new System.Drawing.Size(121, 23);
             this.comboN_PEN.TabIndex = 21;
             this.comboN_PEN.Text = "comboN_PEN";
-            // 
-            // textBoxConsole
-            // 
-            this.textBoxConsole.Location = new System.Drawing.Point(12, 13);
-            this.textBoxConsole.Multiline = true;
-            this.textBoxConsole.Name = "textBoxConsole";
-            this.textBoxConsole.Size = new System.Drawing.Size(298, 198);
-            this.textBoxConsole.TabIndex = 22;
-            this.textBoxConsole.Text = "textBoxConsole";
-            // 
-            // lbNR_REG
-            // 
-            this.lbNR_REG.AutoSize = true;
-            this.lbNR_REG.Location = new System.Drawing.Point(609, 244);
-            this.lbNR_REG.Name = "lbNR_REG";
-            this.lbNR_REG.Size = new System.Drawing.Size(52, 15);
-            this.lbNR_REG.TabIndex = 23;
-            this.lbNR_REG.Text = "NR_REG:";
             // 
             // comboNR_REG
             // 
@@ -248,82 +192,282 @@
             "14",
             "15",
             "16"});
-            this.comboNR_REG.Location = new System.Drawing.Point(667, 241);
+            this.comboNR_REG.Location = new System.Drawing.Point(176, 163);
             this.comboNR_REG.Name = "comboNR_REG";
             this.comboNR_REG.Size = new System.Drawing.Size(121, 23);
             this.comboNR_REG.TabIndex = 24;
             this.comboNR_REG.Text = "comboNR_REG";
             // 
-            // lbNR_PORT
+            // groupBox1
             // 
-            this.lbNR_PORT.AutoSize = true;
-            this.lbNR_PORT.Location = new System.Drawing.Point(602, 273);
-            this.lbNR_PORT.Name = "lbNR_PORT";
-            this.lbNR_PORT.Size = new System.Drawing.Size(59, 15);
-            this.lbNR_PORT.TabIndex = 25;
-            this.lbNR_PORT.Text = "NR_PORT:";
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.latentaUpDown);
+            this.groupBox1.Controls.Add(this.comboN_PEN);
+            this.groupBox1.Controls.Add(this.comboFR);
+            this.groupBox1.Controls.Add(this.comboIBS);
+            this.groupBox1.Controls.Add(this.comboIRmax);
+            this.groupBox1.Controls.Add(this.comboNR_REG);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(309, 199);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Parametri Simulator";
             // 
-            // comboNR_PORT
+            // label6
             // 
-            this.comboNR_PORT.FormattingEnabled = true;
-            this.comboNR_PORT.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.comboNR_PORT.Location = new System.Drawing.Point(667, 270);
-            this.comboNR_PORT.Name = "comboNR_PORT";
-            this.comboNR_PORT.Size = new System.Drawing.Size(121, 23);
-            this.comboNR_PORT.TabIndex = 26;
-            this.comboNR_PORT.Text = "comboNR_PORT";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 163);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 15);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Nr. Set Registri:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 15);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "N_PEN (miss in cache):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 15);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Latenta (for hit in cache):";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 15);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Instruction Buffer Size (IBS):";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(164, 15);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Maximum Issue Rate (IRmax):";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 15);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Fetch Rate (FR):";
+            // 
+            // latentaUpDown
+            // 
+            this.latentaUpDown.Location = new System.Drawing.Point(176, 105);
+            this.latentaUpDown.Name = "latentaUpDown";
+            this.latentaUpDown.Size = new System.Drawing.Size(121, 23);
+            this.latentaUpDown.TabIndex = 25;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.biportRadio);
+            this.groupBox2.Controls.Add(this.uniportRadio);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Location = new System.Drawing.Point(327, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(421, 199);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Parametri Cache (Mapare Directa)";
+            // 
+            // biportRadio
+            // 
+            this.biportRadio.AutoSize = true;
+            this.biportRadio.Location = new System.Drawing.Point(6, 138);
+            this.biportRadio.Name = "biportRadio";
+            this.biportRadio.Size = new System.Drawing.Size(57, 19);
+            this.biportRadio.TabIndex = 32;
+            this.biportRadio.TabStop = true;
+            this.biportRadio.Text = "Biport";
+            this.biportRadio.UseVisualStyleBackColor = true;
+            // 
+            // uniportRadio
+            // 
+            this.uniportRadio.AutoSize = true;
+            this.uniportRadio.Location = new System.Drawing.Point(6, 120);
+            this.uniportRadio.Name = "uniportRadio";
+            this.uniportRadio.Size = new System.Drawing.Size(65, 19);
+            this.uniportRadio.TabIndex = 31;
+            this.uniportRadio.TabStop = true;
+            this.uniportRadio.Text = "Uniport";
+            this.uniportRadio.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboSIZE_DC);
+            this.groupBox4.Controls.Add(this.comboFR_DC);
+            this.groupBox4.Location = new System.Drawing.Point(212, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 86);
+            this.groupBox4.TabIndex = 30;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Data Cache";
+            // 
+            // comboFR_DC
+            // 
+            this.comboFR_DC.FormattingEnabled = true;
+            this.comboFR_DC.Items.AddRange(new object[] {
+            "4",
+            "8",
+            "16"});
+            this.comboFR_DC.Location = new System.Drawing.Point(73, 22);
+            this.comboFR_DC.Name = "comboFR_DC";
+            this.comboFR_DC.Size = new System.Drawing.Size(121, 23);
+            this.comboFR_DC.TabIndex = 27;
+            this.comboFR_DC.Text = "comboFR_DC";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboFR_IC);
+            this.groupBox3.Controls.Add(this.comboSIZE_IC);
+            this.groupBox3.Location = new System.Drawing.Point(6, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 86);
+            this.groupBox3.TabIndex = 29;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Instruction Cache";
+            // 
+            // comboFR_IC
+            // 
+            this.comboFR_IC.FormattingEnabled = true;
+            this.comboFR_IC.Items.AddRange(new object[] {
+            "4",
+            "8",
+            "16"});
+            this.comboFR_IC.Location = new System.Drawing.Point(73, 22);
+            this.comboFR_IC.Name = "comboFR_IC";
+            this.comboFR_IC.Size = new System.Drawing.Size(121, 23);
+            this.comboFR_IC.TabIndex = 27;
+            this.comboFR_IC.Text = "comboFR_IC";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 22);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(200, 215);
+            this.textBox1.TabIndex = 27;
+            this.textBox1.Text = "textBoxInstructiuni";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(212, 22);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(200, 215);
+            this.textBox2.TabIndex = 29;
+            this.textBox2.Text = "textBoxRezultate";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnEXIT);
+            this.groupBox5.Controls.Add(this.btnSTART);
+            this.groupBox5.Controls.Add(this.textBoxConsole);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Location = new System.Drawing.Point(12, 217);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(736, 250);
+            this.groupBox5.TabIndex = 30;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Output";
+            // 
+            // btnEXIT
+            // 
+            this.btnEXIT.Location = new System.Drawing.Point(635, 214);
+            this.btnEXIT.Name = "btnEXIT";
+            this.btnEXIT.Size = new System.Drawing.Size(75, 23);
+            this.btnEXIT.TabIndex = 31;
+            this.btnEXIT.Text = "EXIT";
+            this.btnEXIT.UseVisualStyleBackColor = true;
+            this.btnEXIT.Click += new System.EventHandler(this.btnEXIT_Click);
+            // 
+            // textBoxConsole
+            // 
+            this.textBoxConsole.Location = new System.Drawing.Point(418, 22);
+            this.textBoxConsole.Multiline = true;
+            this.textBoxConsole.Name = "textBoxConsole";
+            this.textBoxConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxConsole.Size = new System.Drawing.Size(200, 215);
+            this.textBoxConsole.TabIndex = 30;
+            this.textBoxConsole.Text = "textBoxConsole";
             // 
             // A2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 553);
-            this.Controls.Add(this.comboN_PEN);
-            this.Controls.Add(this.lbN_PEN);
-            this.Controls.Add(this.comboNR_PORT);
-            this.Controls.Add(this.lbNR_PORT);
-            this.Controls.Add(this.comboNR_REG);
-            this.Controls.Add(this.lbNR_REG);
-            this.Controls.Add(this.textBoxConsole);
-            this.Controls.Add(this.btnSTART);
-            this.Controls.Add(this.lbSIZE_DC);
-            this.Controls.Add(this.comboSIZE_DC);
-            this.Controls.Add(this.comboSIZE_IC);
-            this.Controls.Add(this.lbSIZE_IC);
-            this.Controls.Add(this.comboIRmax);
-            this.Controls.Add(this.comboIBS);
-            this.Controls.Add(this.comboFR);
-            this.Controls.Add(this.lbIRmax);
-            this.Controls.Add(this.lbIBS);
-            this.Controls.Add(this.lbFR);
+            this.ClientSize = new System.Drawing.Size(762, 478);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "A2";
             this.Text = " A2 Cache Simulator";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.latentaUpDown)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label lbFR;
-        private Label lbIBS;
-        private Label lbIRmax;
-        private Label lbN_PEN;
         private ComboBox comboFR;
         private ComboBox comboIBS;
         private ComboBox comboIRmax;
-        private Label lbSIZE_IC;
         private ComboBox comboSIZE_IC;
         private ComboBox comboSIZE_DC;
-        private Label lbSIZE_DC;
         private Button btnSTART;
         private ComboBox comboN_PEN;
-        private TextBox textBoxConsole;
-        private Label lbNR_REG;
         private ComboBox comboNR_REG;
-        private Label lbNR_PORT;
-        private ComboBox comboNR_PORT;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private RadioButton biportRadio;
+        private RadioButton uniportRadio;
+        private GroupBox groupBox4;
+        private ComboBox comboFR_DC;
+        private ComboBox comboFR_IC;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private GroupBox groupBox5;
+        private NumericUpDown latentaUpDown;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Button btnEXIT;
+        private TextBox textBoxConsole;
     }
 }
