@@ -1,0 +1,11 @@
+latentaUpDown 0
+uniportRadio_biportRadio 1
+comboFR 0
+comboIRmax 0
+comboIBS 0
+comboN_PEN 0
+comboNR_REG 0
+comboFR_IC 0
+comboSIZE_IC 0
+comboFR_DC 0
+comboSIZE_DC 0
