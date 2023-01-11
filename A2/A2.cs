@@ -223,6 +223,7 @@ namespace A2
             }
             textBoxConsole.Text = s;
             */
+            textBox1.Text = "Finnish";
         }
 
         private void WriteResults()
