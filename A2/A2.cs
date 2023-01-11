@@ -6,8 +6,8 @@ namespace A2
     public partial class A2 : Form
     {
         private Dictionary<string, List<Tuple<char, uint, uint>>> allTraceData = new Dictionary<string, List<Tuple<char, uint, uint>>>();
-        private int latenta, NR_PORT, FR, IRmax, IBS, N_PEN, NR_REG, FR_IC, SIZE_IC, FR_DC, SIZE_DC; //Parameters for simulation
-        private int MissRateIC, MissRateDC, PercentageIBS_Empty, Influence_IRmax, OptimalREG_Number; //This should be outputed in results.csv maybe? Cosmin any ideas?
+        public int latenta, NR_PORT, FR, IRmax, IBS, N_PEN, NR_REG, FR_IC, SIZE_IC, FR_DC, SIZE_DC; //Parameters for simulation
+        public int MissRateIC, MissRateDC, PercentageIBS_Empty, Influence_IRmax, OptimalREG_Number; //This should be outputed in results.csv maybe? Cosmin any ideas?
 
         //date out:
         //rata de procesare (nr instr raportat la nr cicli de executie)
@@ -181,7 +181,7 @@ namespace A2
                     i++;
                 }
             }
-        }//
+        }
 
         private void ReadTrace(FileInfo file)
         {
@@ -207,23 +207,31 @@ namespace A2
         {
             DirectoryInfo directory = new DirectoryInfo(@"..\..\..\traces\"); //get all traces inside traces folder in current project
             FileInfo[] files = directory.GetFiles("*.TRC");
-            foreach (FileInfo file in files)
+            Parallel.ForEach(files, file =>
             {
-                ReadTrace(file); //Read one trace
-            }
+                ReadTrace(file);
+            });
         }
 
         private void Simulate()
         {
-            /*
-            string s = string.Empty;
-            foreach (var item in allTraceData) 
+            /*string s = string.Empty;
+            foreach (var item in allTraceData["FBUBBLE.TRC"])
             {
-                s += item.Key.ToString() + " " + item.Value.Count.ToString() + Environment.NewLine;
+                s += item.Item1 + " " + item.Item2 + " " + item.Item3 + Environment.NewLine;
             }
-            textBoxConsole.Text = s;
-            */
-            textBoxInstructiuni.Text = "Finnish";
+            textBoxConsole.Text = s;*/
+            string res = string.Empty;
+
+            foreach (var item in allTraceData)
+            {
+                Tuple<double, double, int, int, int, int> results = Instruction.Simulation(item.Value, IRmax, item.Value[0].Item2, latenta, NR_PORT, N_PEN, SIZE_IC, FR, SIZE_DC, SIZE_IC, IBS);
+                res += item.Key + Environment.NewLine;
+                res += results.Item1 + " " + results.Item2 + " " + results.Item3 + " ";
+                break;
+            }
+
+            textBoxRezultate.Text = res;
         }
 
         private void WriteResults()
