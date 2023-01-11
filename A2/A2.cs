@@ -225,12 +225,11 @@ namespace A2
 
             foreach (var item in allTraceData)
             {
-                Tuple<double, double, int, int, int, int> results = Instruction.Simulation(item.Value, IRmax, item.Value[0].Item2, latenta, NR_PORT, N_PEN, SIZE_IC, FR, SIZE_DC, SIZE_IC, IBS);
+                Tuple<double, double, int, int, int, int> results = Instruction.Simulation(item.Value, IRmax, item.Value[0].Item2, latenta, NR_PORT, N_PEN, FR_IC, FR, SIZE_DC, SIZE_IC, IBS);
                 res += item.Key + Environment.NewLine;
-                res += results.Item1 + " " + results.Item2 + " " + results.Item3 + " ";
+                res += results.Item1 + " " + results.Item2 + " " + results.Item3 + " " + results.Item4 + " " + results.Item5 + " " + results.Item6 + Environment.NewLine;
                 break;
             }
-
             textBoxRezultate.Text = res;
         }
 

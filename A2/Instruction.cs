@@ -34,13 +34,11 @@ namespace A2
                 return 2;
             }
         }
-
+        //13 februarie restanta FLorea
         //Function that take the banchmark instruction and procesed
-        public static Tuple<double, double, int, int, int, int> Simulation(List<Tuple<char, uint, uint>> Instructions, int IRMax, uint normalPC, int latenta, int cacheType, int N_PEN, int FR_IC, int FR
-            , int SIZE_DC, int SIZE_IC, int IBS)
+        public static Tuple<double, double, int, int, int, int> Simulation(List<Tuple<char, uint, uint>> Instructions, int IRMax, uint normalPC, int latenta, int NR_PORT, int N_PEN, int FR_IC, int FR, int SIZE_DC, int SIZE_IC, int IBS)
         {
             Queue<Instruction> data = new Queue<Instruction>();
-            Instruction[,] instructions = new Instruction[1000000, IRMax];
             List<Instruction> instructionsFromBanchmark = new List<Instruction>();
             int numberOfAritmetical = 0;
             int numberOfBranches = 0;
@@ -50,7 +48,6 @@ namespace A2
 
             Queue<Instruction> dataCache = new Queue<Instruction>(SIZE_DC);
             Queue<Instruction> instructionCache = new Queue<Instruction>(SIZE_IC);
-
             Queue<Instruction> instructionBufferSize = new Queue<Instruction>(IBS);
 
             for (int i = 0; i < FR_IC; i++)
@@ -68,7 +65,6 @@ namespace A2
                 instructionsFromBanchmark.Add(instructionBufferSize.Dequeue());
             }
 
-
             foreach (Instruction instruction in instructionsFromBanchmark)
             {
                 while (instruction.currentPC != normalPC)
@@ -79,13 +75,12 @@ namespace A2
                     data.Enqueue(instruction);
                     normalPC++;
                     numberOfAritmetical++;
-
                 }
                 if (instruction.instructionType == Constants.BRANCH)
                 {
                     //TODO: add the branch instruction to IC buffer, increment the number of branch instructions
                     //porcesed
-                    data.Enqueue(instruction);
+
                     normalPC = instruction.target;
                     numberOfBranches++;
                 }
@@ -93,7 +88,7 @@ namespace A2
                 {
                     //TODO: add the store instruction to IC buffer, increment the number of store instructions
                     //porcesed
-                    data.Enqueue(instruction);
+
                     normalPC++;
                     numberOfStores++;
                 }
@@ -101,17 +96,18 @@ namespace A2
                 {
                     //TODO: add the store instruction to IC buffer, increment the number of load instructions
                     //porcesed
-                    data.Enqueue(instruction);
+
                     normalPC++;
                     numberOfLoads++;
                 }
+                data.Enqueue(instruction);
             }
 
             ticks = data.Count() / 2 * latenta;
-
             int memoryAccess = 0;
+            Instruction[,] instructions = new Instruction[1000000, IRMax];
 
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < data.Count; i++)
             {
                 for (int j = 0; j < IRMax; j++)
                 {
@@ -121,7 +117,7 @@ namespace A2
 
             foreach (Instruction instruction in instructions)
             {
-                if (memoryAccess < GetPortState(cacheType))
+                if (memoryAccess < GetPortState(NR_PORT))
                 {
                     if (instruction.instructionType == Constants.STORE || instruction.instructionType == Constants.LOAD)
                     {
@@ -130,6 +126,7 @@ namespace A2
                 }
                 else
                 {
+                    //problema:
                     if (instruction.instructionType == Constants.STORE || instruction.instructionType == Constants.LOAD)
                     {
                         memoryAccess = 0;
@@ -139,13 +136,9 @@ namespace A2
             }
             //TODO: Calculate all the metrics.
             double IRcalc = (double)data.Count() / ticks;
-
             double missCachePenalty = numberOfLoads * Constants.CACHE_MISS * N_PEN;
-
             ticks += N_PEN;
-
             return new Tuple<double, double, int, int, int, int>(IRcalc, missCachePenalty, ticks, numberOfBranches, numberOfLoads, numberOfStores);
-
         }
     }
 }
