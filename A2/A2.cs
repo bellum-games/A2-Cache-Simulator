@@ -181,7 +181,7 @@ namespace A2
                     i++;
                 }
             }
-        }
+        }//
 
         private void ReadTrace(FileInfo file)
         {
