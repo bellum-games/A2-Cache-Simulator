@@ -12,5 +12,6 @@ namespace A2
         public const char BRANCH = 'B';
         public const char STORE = 'S';
         public const char LOAD = 'L';
+        public const double CACHE_MISS = 0.1;
     }
 }
