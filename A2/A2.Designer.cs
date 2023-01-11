@@ -51,11 +51,15 @@
             this.comboFR_DC = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboFR_IC = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxInstructiuni = new System.Windows.Forms.TextBox();
+            this.textBoxRezultate = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnEXIT = new System.Windows.Forms.Button();
             this.textBoxConsole = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.latentaUpDown)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -317,6 +321,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.comboSIZE_DC);
             this.groupBox4.Controls.Add(this.comboFR_DC);
             this.groupBox4.Location = new System.Drawing.Point(212, 28);
@@ -341,6 +347,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.comboFR_IC);
             this.groupBox3.Controls.Add(this.comboSIZE_IC);
             this.groupBox3.Location = new System.Drawing.Point(6, 28);
@@ -363,33 +371,33 @@
             this.comboFR_IC.TabIndex = 27;
             this.comboFR_IC.Text = "comboFR_IC";
             // 
-            // textBox1
+            // textBoxInstructiuni
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 22);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(200, 215);
-            this.textBox1.TabIndex = 27;
-            this.textBox1.Text = "textBoxInstructiuni";
+            this.textBoxInstructiuni.Location = new System.Drawing.Point(6, 22);
+            this.textBoxInstructiuni.Multiline = true;
+            this.textBoxInstructiuni.Name = "textBoxInstructiuni";
+            this.textBoxInstructiuni.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxInstructiuni.Size = new System.Drawing.Size(200, 215);
+            this.textBoxInstructiuni.TabIndex = 27;
+            this.textBoxInstructiuni.Text = "textBoxInstructiuni";
             // 
-            // textBox2
+            // textBoxRezultate
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 22);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(200, 215);
-            this.textBox2.TabIndex = 29;
-            this.textBox2.Text = "textBoxRezultate";
+            this.textBoxRezultate.Location = new System.Drawing.Point(212, 22);
+            this.textBoxRezultate.Multiline = true;
+            this.textBoxRezultate.Name = "textBoxRezultate";
+            this.textBoxRezultate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxRezultate.Size = new System.Drawing.Size(200, 215);
+            this.textBoxRezultate.TabIndex = 29;
+            this.textBoxRezultate.Text = "textBoxRezultate";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnEXIT);
             this.groupBox5.Controls.Add(this.btnSTART);
             this.groupBox5.Controls.Add(this.textBoxConsole);
-            this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.textBoxInstructiuni);
+            this.groupBox5.Controls.Add(this.textBoxRezultate);
             this.groupBox5.Location = new System.Drawing.Point(12, 217);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(736, 250);
@@ -417,6 +425,42 @@
             this.textBoxConsole.TabIndex = 30;
             this.textBoxConsole.Text = "textBoxConsole";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(28, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 15);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "FR_IC:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 15);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "SIZE_IC:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 15);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "SIZE_DC:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(23, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 15);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "FR_DC:";
+            // 
             // A2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -433,7 +477,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -457,8 +503,8 @@
         private GroupBox groupBox4;
         private ComboBox comboFR_DC;
         private ComboBox comboFR_IC;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxInstructiuni;
+        private TextBox textBoxRezultate;
         private GroupBox groupBox5;
         private NumericUpDown latentaUpDown;
         private Label label6;
@@ -469,5 +515,9 @@
         private Label label1;
         private Button btnEXIT;
         private TextBox textBoxConsole;
+        private Label label9;
+        private Label label10;
+        private Label label8;
+        private Label label7;
     }
 }
